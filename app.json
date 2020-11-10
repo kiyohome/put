@@ -1,0 +1,12 @@
+{
+  "name": "put",
+  "displayName": "put",
+  "expo": {
+    "name": "put",
+    "slug": "put",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
