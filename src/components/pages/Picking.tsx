@@ -5,6 +5,7 @@ import { Platform, StyleSheet, View } from 'react-native';
 import { Button, Image, Text } from 'react-native-elements';
 
 import { BackendService } from '../../backend/BackendService';
+import { useTrashContext } from '../../contexts/TrashContext';
 import { Page, TabPage } from './TabPage';
 
 const styles = StyleSheet.create({
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
 });
 
 const Component: React.FC = () => {
+  const trashContext = useTrashContext();
   const navigation = useNavigation();
   const [image, setImage] = useState<string>('');
 
@@ -84,8 +86,7 @@ const Component: React.FC = () => {
   const pickUpTrash = async () => {
     const response = await fetch(image);
     const trash = await response.blob();
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    BackendService.postTrash(trash).then((response) => console.log(response));
+    trashContext.postTrash(trash);
     setImage('');
     navigation.navigate('home');
   };

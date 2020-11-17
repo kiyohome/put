@@ -42,7 +42,7 @@ paths:
                     - id: 1003
                       imageUrl: https://images.unsplash.com/photo-1586045545601-36c8046cfdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
                       date: 2020/11/1
-                      point: 134
+                      point: 8
                     - id: 1004
                       imageUrl: https://images.unsplash.com/photo-1587935949075-61ceadf12587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
                       date: 2020/10/29
@@ -79,7 +79,7 @@ paths:
                     id: 1006
                     imageUrl: https://images.unsplash.com/photo-1527566406204-827440d86bd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
                     date: 2020/11/17
-                    point: 98
+                    point: 25
         '400':
           description: Bad Request
         '403':

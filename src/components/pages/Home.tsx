@@ -4,6 +4,7 @@ import { Card, Text } from 'react-native-elements';
 
 import { BackendService } from '../../backend/BackendService';
 import { Trash } from '../../backend/generated-rest-client';
+import { useTrashContext } from '../../contexts/TrashContext';
 import { Page, TabPage } from './TabPage';
 
 const styles = StyleSheet.create({
@@ -34,25 +35,22 @@ const styles = StyleSheet.create({
 });
 
 const Component: React.FC = () => {
-  const [point, setPoint] = useState<number>(0);
-  const [trashList, setTrashList] = useState<Trash[]>([]);
+  const trashContext = useTrashContext();
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    BackendService.getTrashList().then((response) => setTrashList(response));
-    trashList.forEach((trash) => setPoint(point + trash.point));
+    trashContext.getTrashList();
   }, []);
 
   return (
     <Page>
       <Text style={styles.lead}>Let's go pick up trash!</Text>
       <Text style={styles.point}>
-        {point}
+        {trashContext.point}
         <Text style={styles.unit}>pt</Text>
       </Text>
       <View style={styles.trashList}>
-        {trashList.map((trash) => (
-          <Card key={trash.id} containerStyle={styles.trash}>
+        {trashContext.trashList.map((trash, index) => (
+          <Card key={index} containerStyle={styles.trash}>
             <Card.Title>{trash.date}</Card.Title>
             <Card.Divider />
             <Card.Image source={{ uri: trash.imageUrl }} />
