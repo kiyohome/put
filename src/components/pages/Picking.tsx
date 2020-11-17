@@ -1,9 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useEffect, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Button, Image, Text } from 'react-native-elements';
-import { BackendService } from '../../backend/BackendService';
 
+import { BackendService } from '../../backend/BackendService';
 import { Page, TabPage } from './TabPage';
 
 const styles = StyleSheet.create({
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
 });
 
 const Component: React.FC = () => {
+  const navigation = useNavigation();
   const [image, setImage] = useState<string>('');
 
   useEffect(() => {
@@ -85,6 +87,7 @@ const Component: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     BackendService.postTrash(trash).then((response) => console.log(response));
     setImage('');
+    navigation.navigate('home');
   };
 
   return (
