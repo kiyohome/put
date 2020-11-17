@@ -33,10 +33,10 @@ export interface Trash {
     imageUrl: string;
     /**
      * ゴミ拾いの登録日
-     * @type {number}
+     * @type {string}
      * @memberof Trash
      */
-    date: number;
+    date: string;
     /**
      * ゴミ拾いのポイント
      * @type {number}
