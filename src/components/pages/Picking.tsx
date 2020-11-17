@@ -2,6 +2,7 @@ import * as ImagePicker from 'expo-image-picker';
 import React, { useEffect, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Button, Image, Text } from 'react-native-elements';
+import { BackendService } from '../../backend/BackendService';
 
 import { Page, TabPage } from './TabPage';
 
@@ -37,6 +38,7 @@ const Component: React.FC = () => {
   const [image, setImage] = useState<string>('');
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     (async () => {
       if (Platform.OS !== 'web') {
         const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -44,9 +46,7 @@ const Component: React.FC = () => {
           alert('Sorry, we need camera roll permissions to make this work!');
         }
       }
-    })()
-      .catch(() => {})
-      .finally(() => {});
+    })();
   }, []);
 
   const takePhoto = async () => {
@@ -80,7 +80,10 @@ const Component: React.FC = () => {
   };
 
   const pickUpTrash = async () => {
-    window.alert('TODO invoke API for picking up trash');
+    const response = await fetch(image);
+    const trash = await response.blob();
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    BackendService.postTrash(trash).then((response) => console.log(response));
     setImage('');
   };
 
