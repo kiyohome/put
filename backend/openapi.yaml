@@ -150,10 +150,10 @@ components:
           type: string
           description: ゴミ拾いイメージのURL
         date:
-          type: number
+          type: string
           description: ゴミ拾いの登録日
         point:
-          type: number
+          type: integer
           description: ゴミ拾いのポイント
       required:
         - id
