@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   page: {
@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
 });
 
 const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
-  return <View style={styles.page}>{children}</View>;
+  return <ScrollView contentContainerStyle={styles.page}>{children}</ScrollView>;
 };
 
-function FullPage(screenName: string, page: React.FC) {
+function RootPage(screenName: string, page: React.FC) {
   return {
     name: screenName,
     component: page,
   };
 }
 
-export { Page, FullPage };
+export { Page, RootPage };

@@ -1,13 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+
 import Home from './Home';
 import Logout from './Logout';
 import Picking from './Picking';
 
 const Tab = createBottomTabNavigator();
 
-const TabNav: React.FC = () => {
+const MainNav: React.FC = () => {
   return (
     <Tab.Navigator initialRouteName="home">
       <Tab.Screen {...Home} />
@@ -17,4 +17,4 @@ const TabNav: React.FC = () => {
   );
 };
 
-export default { name: 'main', component: TabNav };
+export default { name: 'main', component: MainNav };

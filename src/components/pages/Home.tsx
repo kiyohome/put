@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Card, Text } from 'react-native-elements';
 
-import { BackendService } from '../../backend/BackendService';
-import { Trash } from '../../backend/generated-rest-client';
 import { useTrashContext } from '../../contexts/TrashContext';
-import { Page, TabPage } from './TabPage';
+import { MainPage, Page } from './MainPage';
 
 const styles = StyleSheet.create({
   lead: {
@@ -61,4 +59,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default TabPage('home', Component, 'home');
+export default MainPage('home', Component, 'home');

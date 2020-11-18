@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'react-native-elements';
 
 import { useUserContext } from '../../contexts/UserContext';
-import { Page, TabPage } from './TabPage';
+import { Page, MainPage } from './MainPage';
 
 const Component: React.FC = () => {
   const userContext = useUserContext();
@@ -22,4 +22,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default TabPage('logout', Component, 'lock');
+export default MainPage('logout', Component, 'lock');

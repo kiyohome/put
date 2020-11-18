@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 import { Header, Icon, normalize } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { useUserContext } from '../../contexts/UserContext';
-
-type Props = {
-  children: React.ReactNode;
-};
 
 const styles = StyleSheet.create({
   header: {
@@ -21,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Page: React.FC<Props> = ({ children }) => {
+const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
   const userContext = useUserContext();
   const name = userContext.isLoggedIn ? userContext.userName : 'guest';
 
@@ -36,7 +32,7 @@ const Page: React.FC<Props> = ({ children }) => {
   );
 };
 
-const TabPage = (screenName: string, page: React.FC, iconName: string) => {
+const MainPage = (screenName: string, page: React.FC, iconName: string) => {
   return {
     name: screenName,
     component: page,
@@ -46,4 +42,4 @@ const TabPage = (screenName: string, page: React.FC, iconName: string) => {
   };
 };
 
-export { Page, TabPage };
+export { Page, MainPage };

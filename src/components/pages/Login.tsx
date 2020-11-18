@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Button, Input, Text } from 'react-native-elements';
+import { Button, Image, Input, Text } from 'react-native-elements';
 
 import { useUserContext } from '../../contexts/UserContext';
-import { FullPage, Page } from './FullPage';
+import { RootPage, Page } from './RootPage';
 
 const styles = StyleSheet.create({
   label: {
@@ -23,6 +23,7 @@ const Component: React.FC = () => {
 
   return (
     <Page>
+      <Image source={require('../../assets/logo.png')} style={{ height: 300, width: 300 }} />
       <Text style={styles.label}>User name</Text>
       <Input placeholder="your name" value={userName} onChangeText={(text) => setUserName(text)} />
       <Text style={styles.label}>Password</Text>
@@ -40,4 +41,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default FullPage('login', Component);
+export default RootPage('login', Component);

@@ -4,9 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Button, Image, Text } from 'react-native-elements';
 
-import { BackendService } from '../../backend/BackendService';
 import { useTrashContext } from '../../contexts/TrashContext';
-import { Page, TabPage } from './TabPage';
+import { Page, MainPage } from './MainPage';
 
 const styles = StyleSheet.create({
   lead: {
@@ -55,7 +54,7 @@ const Component: React.FC = () => {
 
   const takePhoto = async () => {
     const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
@@ -70,7 +69,7 @@ const Component: React.FC = () => {
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
@@ -105,4 +104,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default TabPage('pick', Component, 'camera');
+export default MainPage('pick', Component, 'camera');

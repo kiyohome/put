@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useUserContext } from '../../contexts/UserContext';
 import Login from './Login';
-import TabNav from './TabNav';
+import MainNav from './MainNav';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ const RootNav: React.FC = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none">{userContext.isLoggedIn ? <Stack.Screen {...TabNav} /> : <Stack.Screen {...Login} />}</Stack.Navigator>
+      <Stack.Navigator headerMode="none">{userContext.isLoggedIn ? <Stack.Screen {...MainNav} /> : <Stack.Screen {...Login} />}</Stack.Navigator>
     </NavigationContainer>
   );
 };
