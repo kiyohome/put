@@ -5,12 +5,29 @@
 
 ## 事前準備
 
-- [React Native の開発環境が構築](https://reactnative.dev/docs/environment-setup)されていること
-  - **必ず「React Native CLI Quickstart」というタブをクリック**して、手順を実施してください。
-  - 「Development OS」は、開発に利用している OS を選択してください。
-  - 「Target OS」は「Android」の手順を実施してください。
+- https://tidev-aizu.connpass.com/event/194591/
+  - 事前準備を参照してください。
 
 ## 使い方
+
+まずバックエンドのREST APIとして動作するモックサーバを起動します。
+bacckendディレクトリで次のコマンドで起動します。
+
+```bash
+docker-compose -f api-mock.yml up
+```
+
+アプリからモックサーバのREST APIを呼び出すためのIPアドレスをソースコードに設定します。
+開発マシンのIPアドレスを確認し次のソースコードを変更します。
+
+/src/backend/generated-rest-client/runtime.ts
+
+```javascript
+export const BASE_PATH = "http://192.168.16.1:9080".replace(/\/+$/, "");
+```
+
+次にAndroidエミュレータでアプリを起動します。
+プロジェクトのルートディレクトリで次のコマンドで起動します。
 
 ```bash
 npm run android    # Androidエミュレータが起動します
