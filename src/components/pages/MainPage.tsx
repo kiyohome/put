@@ -1,10 +1,8 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import React, { PropsWithChildren } from 'react';
+import { StyleSheet } from 'react-native';
 import { Header, Icon, normalize } from 'react-native-elements';
-
-type Props = {
-  children: React.ReactNode;
-};
+import { ScrollView } from 'react-native-gesture-handler';
+import { useUserContext } from '../../contexts/UserContext';
 
 const styles = StyleSheet.create({
   header: {
@@ -18,19 +16,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const Page: React.FC<Props> = ({ children }) => {
+const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
+
+  const userContext = useUserContext();
+  const name = userContext.isLoggedIn ? userContext.userName : 'guest';
+
   return (
     <>
       <Header
         leftComponent={{ text: 'PUT', style: { color: '#fff', fontWeight: '700' } }}
-        rightComponent={{ text: 'kiyohome', style: { color: '#fff' } }}
+        rightComponent={{ text: name, style: { color: '#fff' } }}
       />
       <ScrollView contentContainerStyle={styles.page}>{children}</ScrollView>
     </>
   );
 };
 
-const TabPage = (screenName: string, page: React.FC, iconName: string) => {
+const mainPage = (screenName: string, page: React.FC, iconName: string) => {
   return {
     name: screenName,
     component: page,
@@ -40,4 +42,4 @@ const TabPage = (screenName: string, page: React.FC, iconName: string) => {
   };
 };
 
-export { Page, TabPage };
+export { Page, mainPage };
