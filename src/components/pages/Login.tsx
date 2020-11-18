@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 
 import { useUserContext } from '../../contexts/UserContext';
-import { Page, TabPage } from './TabPage';
+import { FullPage, Page } from './FullPage';
 
 const styles = StyleSheet.create({
   label: {
@@ -33,11 +33,11 @@ const Component: React.FC = () => {
           await userContext.login(userName, password);
           setUserName('');
           setPassword('');
-          navigation.navigate('home');
+          navigation.navigate('main');
         }}
       />
     </Page>
   );
 };
 
-export default TabPage('login', Component, 'lock');
+export default FullPage('login', Component);

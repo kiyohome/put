@@ -1,6 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Header, Icon, normalize } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import { useUserContext } from '../../contexts/UserContext';
 
 type Props = {
