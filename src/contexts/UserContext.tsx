@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-
 import { BackendService } from '../backend/BackendService';
 
 export class AccountConflictError {}
@@ -18,6 +17,7 @@ export const UserContext = React.createContext<ContextValueType>({} as ContextVa
 export const useUserContext = () => useContext(UserContext);
 
 export const UserContextProvider: React.FC = ({ children }) => {
+
   const [userName, setUserName] = useState<string>('');
 
   const contextValue: ContextValueType = {

@@ -1,14 +1,15 @@
-import { activateKeepAwake } from 'expo-keep-awake';
 import React from 'react';
-
-import RootNav from './components/pages/RootNav';
-import { TrashContextProvider } from './contexts/TrashContext';
+import { activateKeepAwake } from 'expo-keep-awake';
 import { UserContextProvider } from './contexts/UserContext';
+import { TrashContextProvider } from './contexts/TrashContext';
+import RootNav from './components/pages/RootNav';
 
 const App: React.FC = () => {
+
   if (__DEV__) {
     activateKeepAwake();
   }
+
   return (
     <UserContextProvider>
       <TrashContextProvider>

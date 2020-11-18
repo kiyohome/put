@@ -11,7 +11,11 @@ const styles = StyleSheet.create({
 });
 
 const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
-  return <ScrollView contentContainerStyle={styles.page}>{children}</ScrollView>;
+  return (
+    <ScrollView contentContainerStyle={styles.page}>
+      {children}
+    </ScrollView>
+  );
 };
 
 function RootPage(screenName: string, page: React.FC) {

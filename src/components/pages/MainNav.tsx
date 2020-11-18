@@ -1,6 +1,5 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Logout from './Logout';
 import Picking from './Picking';

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-
 import { BackendService } from '../backend/BackendService';
 import { Trash } from '../backend/generated-rest-client';
 
@@ -15,16 +14,17 @@ export const TrashContext = React.createContext<ContextValueType>({} as ContextV
 export const useTrashContext = () => useContext(TrashContext);
 
 export const TrashContextProvider: React.FC = ({ children }) => {
+
   const [trashList, setTrashList] = useState<Trash[]>([]);
 
   const contextValue: ContextValueType = {
     getTrashList: () => {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      BackendService.getTrashList().then((response) => setTrashList(response));
+      BackendService.getTrashList()
+        .then(response => setTrashList(response));
     },
     postTrash: (trash) => {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      BackendService.postTrash(trash).then((response) => setTrashList([response, ...trashList]));
+      BackendService.postTrash(trash)
+        .then(response => setTrashList([response, ...trashList]));
     },
     trashList,
     point: trashList.reduce((total, trash) => total + trash.point, 0),

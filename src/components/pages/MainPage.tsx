@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 import { Header, Icon, normalize } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import { useUserContext } from '../../contexts/UserContext';
 
 const styles = StyleSheet.create({
@@ -18,6 +17,7 @@ const styles = StyleSheet.create({
 });
 
 const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
+
   const userContext = useUserContext();
   const name = userContext.isLoggedIn ? userContext.userName : 'guest';
 
