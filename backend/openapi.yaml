@@ -23,7 +23,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            'application/json':
               schema:
                 type: array
                 items:
@@ -32,23 +32,23 @@ paths:
                 example:
                   value:
                     - id: 1001
-                      imageUrl: https://images.unsplash.com/photo-1534962303837-2edd16492781?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+                      imageUrl: https://images.unsplash.com/photo-1534962303837-2edd16492781
                       date: 2020/11/12
                       point: 34
                     - id: 1002
-                      imageUrl: https://images.unsplash.com/photo-1597348989645-46b190ce4918?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
+                      imageUrl: https://images.unsplash.com/photo-1597348989645-46b190ce4918
                       date: 2020/11/10
                       point: 17
                     - id: 1003
-                      imageUrl: https://images.unsplash.com/photo-1586045545601-36c8046cfdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
+                      imageUrl: https://images.unsplash.com/photo-1534962303837-2edd16492781
                       date: 2020/11/1
                       point: 8
                     - id: 1004
-                      imageUrl: https://images.unsplash.com/photo-1587935949075-61ceadf12587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
+                      imageUrl: https://images.unsplash.com/photo-1597348989645-46b190ce4918
                       date: 2020/10/29
                       point: 17
                     - id: 1005
-                      imageUrl: https://images.unsplash.com/photo-1517664946321-87d2e16ebaa6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60
+                      imageUrl: https://images.unsplash.com/photo-1534962303837-2edd16492781
                       date: 2020/10/20
                       point: 11
         '403':
@@ -62,7 +62,7 @@ paths:
       operationId: postTrash
       requestBody:
         content:
-          image/jpg:
+          'image/jpg':
             schema:
               type: string
               format: binary
@@ -70,14 +70,14 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            'application/json':
               schema:
                 $ref: '#/components/schemas/Trash'
               examples:
                 example:
                   value:
                     id: 1006
-                    imageUrl: https://images.unsplash.com/photo-1527566406204-827440d86bd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+                    imageUrl: https://images.unsplash.com/photo-1602084551218-a28205125639
                     date: 2020/11/17
                     point: 25
         '400':
@@ -97,7 +97,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          'application/json':
             schema:
               type: object
               properties:

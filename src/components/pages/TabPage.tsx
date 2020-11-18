@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { Header, Icon, normalize } from 'react-native-elements';
+import { useUserContext } from '../../contexts/UserContext';
 
 type Props = {
   children: React.ReactNode;
@@ -19,11 +20,14 @@ const styles = StyleSheet.create({
 });
 
 const Page: React.FC<Props> = ({ children }) => {
+  const userContext = useUserContext();
+  const name = userContext.isLoggedIn ? userContext.userName : 'guest';
+
   return (
     <>
       <Header
         leftComponent={{ text: 'PUT', style: { color: '#fff', fontWeight: '700' } }}
-        rightComponent={{ text: 'kiyohome', style: { color: '#fff' } }}
+        rightComponent={{ text: name, style: { color: '#fff' } }}
       />
       <ScrollView contentContainerStyle={styles.page}>{children}</ScrollView>
     </>
