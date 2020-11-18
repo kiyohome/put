@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { Card, Text } from 'react-native-elements';
+import { Trash } from '../../backend/generated-rest-client';
 import { useTrashContext } from '../../contexts/TrashContext';
 import { MainPage, Page } from './MainPage';
 
@@ -39,6 +40,14 @@ const Component: React.FC = () => {
     trashContext.getTrashList();
   }, []);
 
+  const renderTrash = (trash: Trash) => (
+    <Card containerStyle={styles.trash}>
+      <Card.Title>{trash.date}</Card.Title>
+      <Card.Divider />
+      <Card.Image source={{ uri: trash.imageUrl }} />
+    </Card>
+  );
+
   return (
     <Page>
       <Text style={styles.lead}>Let's go pick up trash!</Text>
@@ -46,15 +55,10 @@ const Component: React.FC = () => {
         {trashContext.point}
         <Text style={styles.unit}>pt</Text>
       </Text>
-      <View style={styles.trashList}>
-        {trashContext.trashList.map((trash, index) => (
-          <Card key={index} containerStyle={styles.trash}>
-            <Card.Title>{trash.date}</Card.Title>
-            <Card.Divider />
-            <Card.Image source={{ uri: trash.imageUrl }} />
-          </Card>
-        ))}
-      </View>
+      <FlatList
+        data={trashContext.trashList}
+        renderItem={renderTrash}
+        contentContainerStyle={styles.trashList} />
     </Page>
   );
 };
