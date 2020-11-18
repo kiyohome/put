@@ -18,11 +18,11 @@ const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
   );
 };
 
-function RootPage(screenName: string, page: React.FC) {
+function rootPage(screenName: string, page: React.FC) {
   return {
     name: screenName,
     component: page,
   };
 }
 
-export { Page, RootPage };
+export { Page, rootPage };

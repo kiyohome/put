@@ -32,7 +32,7 @@ const Page: React.FC<PropsWithChildren<object>> = ({ children }) => {
   );
 };
 
-const MainPage = (screenName: string, page: React.FC, iconName: string) => {
+const mainPage = (screenName: string, page: React.FC, iconName: string) => {
   return {
     name: screenName,
     component: page,
@@ -42,4 +42,4 @@ const MainPage = (screenName: string, page: React.FC, iconName: string) => {
   };
 };
 
-export { Page, MainPage };
+export { Page, mainPage };

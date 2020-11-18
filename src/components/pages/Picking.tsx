@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button, Image, Text } from 'react-native-elements';
 import { useTrashContext } from '../../contexts/TrashContext';
-import { Page, MainPage } from './MainPage';
+import { Page, mainPage } from './MainPage';
 
 const styles = StyleSheet.create({
   lead: {
@@ -99,4 +99,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default MainPage('pick', Component, 'camera');
+export default mainPage('pick', Component, 'camera');

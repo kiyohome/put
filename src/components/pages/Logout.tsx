@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-elements';
 import { useUserContext } from '../../contexts/UserContext';
-import { Page, MainPage } from './MainPage';
+import { Page, mainPage } from './MainPage';
 
 const Component: React.FC = () => {
 
@@ -21,4 +21,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default MainPage('logout', Component, 'lock');
+export default mainPage('logout', Component, 'lock');

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
-import { Button, Image, ImageProps, Input, Text } from 'react-native-elements';
+import { Button, Image, Input, Text } from 'react-native-elements';
 import { useUserContext } from '../../contexts/UserContext';
-import { RootPage, Page } from './RootPage';
+import { rootPage, Page } from './RootPage';
 
 const styles = StyleSheet.create({
   image: {
@@ -47,4 +47,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default RootPage('login', Component);
+export default rootPage('login', Component);
