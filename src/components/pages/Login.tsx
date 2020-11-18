@@ -7,6 +7,10 @@ import { useUserContext } from '../../contexts/UserContext';
 import { RootPage, Page } from './RootPage';
 
 const styles = StyleSheet.create({
+  image: {
+    marginTop: -30,
+    marginBottom: 80,
+  },
   label: {
     alignSelf: 'flex-start',
     paddingLeft: 11,
@@ -23,7 +27,7 @@ const Component: React.FC = () => {
 
   return (
     <Page>
-      <Image source={require('../../assets/logo.png')} style={{ height: 300, width: 300 }} />
+      <Image containerStyle={styles.image} source={require('../../assets/logo.png')} style={{ height: 200, width: 500 }} />
       <Text style={styles.label}>User name</Text>
       <Input placeholder="your name" value={userName} onChangeText={(text) => setUserName(text)} />
       <Text style={styles.label}>Password</Text>
