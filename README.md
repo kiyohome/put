@@ -30,5 +30,6 @@ export const BASE_PATH = "http://192.168.16.1:9080".replace(/\/+$/, "");
 プロジェクトのルートディレクトリで次のコマンドで起動します。
 
 ```bash
-npm run android    # Androidエミュレータが起動します
+npm install
+npm run android
 ```
