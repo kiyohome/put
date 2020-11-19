@@ -2,7 +2,7 @@
 module.exports = {
   // https://prettier.io/docs/en/options.html#bracket-spacing
   // import {React} from 'React' のように、{}の間にスペースを含まないようにする。
-  bracketSpacing: false,
+  bracketSpacing: true,
   // https://prettier.io/docs/en/options.html#jsx-brackets
   // JSXのタグが複数行になったときに、最後の'>'の前で改行しない。
   jsxBracketSameLine: true,
